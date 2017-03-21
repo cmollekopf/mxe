@@ -15,7 +15,7 @@ define $(PKG)_UPDATE
 endef
 
 define $(PKG)_BUILD
-	cd "$(1)" && $(BUILD_CXX) qrcAlias.cpp -o $(PREFIX)/bin/qrcAlias -fPIC $(shell pkg-config --cflags Qt5Core --libs Qt5Core)
+	cd "$(1)" && $(BUILD_CXX) -std=c++11 qrcAlias.cpp -o $(PREFIX)/bin/qrcAlias -fPIC $(shell pkg-config --cflags Qt5Core --libs Qt5Core)
     mkdir "$(1)/build"
     cd "$(1)/build" && cmake .. \
         -DCMAKE_TOOLCHAIN_FILE="$(CMAKE_TOOLCHAIN_FILE)" \

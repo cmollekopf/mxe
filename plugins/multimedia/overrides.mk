@@ -3,7 +3,7 @@
 $(info == Custom FFmpeg overrides: $(lastword $(MAKEFILE_LIST)))
 
 # reduced ffmpeg
-ffmpeg_DEPS := $(filter-out gnutls libass libbluray libbs2b libcaca opencore-amr vo-amrwbenc xvidcore,$(ffmpeg_DEPS))
+ffmpeg_DEPS := $(filter-out gnutls libass libbluray libbs2b libcaca opencore-amr vo-amrwbenc xvidcore lame x264 speex,$(ffmpeg_DEPS))
 
 # use pthreads with MLT
 define ffmpeg_BUILD
@@ -18,6 +18,7 @@ define ffmpeg_BUILD
             --disable-static --enable-shared ) \
         --yasmexe='$(TARGET)-yasm' \
         --disable-debug \
+        --disable-ffserver \
         --enable-memalign-hack \
         --enable-pthreads \
         --disable-w32threads \
@@ -32,17 +33,17 @@ define ffmpeg_BUILD
         --disable-libbluray \
         --disable-libbs2b \
         --disable-libcaca \
-        --enable-libmp3lame \
+        --disable-libmp3lame \
         --disable-libopencore-amrnb \
         --disable-libopencore-amrwb \
         --enable-libopus \
-        --enable-libspeex \
+        --disable-libspeex \
         --enable-libtheora \
         --enable-libvidstab \
         --disable-libvo-amrwbenc \
         --enable-libvorbis \
         --enable-libvpx \
-        --enable-libx264 \
+        --disable-libx264 \
         --disable-libxvid
     $(MAKE) -C '$(1)' -j '$(JOBS)'
     $(MAKE) -C '$(1)' -j 1 install

@@ -71,3 +71,6 @@ define qtbase_BUILD
      printf 'test-qtbase-pkgconfig.exe\r\n';) \
      > '$(PREFIX)/$(TARGET)/bin/test-qt5.bat'
 endef
+
+qtbase_BUILD_SHARED = $(subst -static,-shared, $($(qtbase)_BUILD))
+

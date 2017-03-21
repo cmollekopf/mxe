@@ -7,9 +7,9 @@ $(PKG)_CHECKSUM := d3a992f3e67463e68630cb0b455d408a2a12f4da7a19e46807fa08a79f09b
 $(PKG)_SUBDIR   := $(PKG)-$($(PKG)_VERSION)
 $(PKG)_FILE     := $(PKG)-$($(PKG)_VERSION).tar.gz
 $(PKG)_URL      := http://$(SOURCEFORGE_MIRROR)/project/$(PKG)/$(PKG)/$($(PKG)_FILE)
-$(PKG)_DEPS     := gcc libxml2 sdl sdl_image ffmpeg qtbase qtsvg \
-	frei0r-plugins ladspa-sdk fftw libsamplerate vorbis sox
-# sox gtk2 movit exif xine
+$(PKG)_DEPS     := gcc libxml2 sdl sdl_image ffmpeg qtbase qtsvg dlfcn-win32 \
+	frei0r-plugins ladspa-sdk fftw libsamplerate vorbis sox \
+# gtk2 movit exif xine
 
 define $(PKG)_UPDATE
     $(WGET) -q -O- 'https://github.com/mltframework/mlt/tags' | \
@@ -33,7 +33,7 @@ define $(PKG)_BUILD
 	# --disable-sse --disable-sse2
 	$(MAKE) -C '$(1)/src/modules/lumas' CC=$(BUILD_CC) luma
 	CXXFLAGS=-std=c++11 \
-	CFLAGS="-I$(PREFIX)/$(TARGET)/include -DMELT_NOSDL" \
+	CFLAGS="-I$(PREFIX)/$(TARGET)/include" \
 	LDFLAGS="-L$(PREFIX)/$(TARGET)/lib" \
 	PKG_CONFIG_LIBDIR=$(PREFIX)/$(TARGET)/lib/pkgconfig \
 	$(MAKE) -C '$(1)' \
