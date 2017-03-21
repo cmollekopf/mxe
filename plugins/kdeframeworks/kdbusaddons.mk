@@ -1,7 +1,7 @@
 # This file is part of MXE. See LICENSE.md for licensing information.
 PKG             := kdbusaddons
-$(PKG)_VERSION  := 5.28.0
-$(PKG)_CHECKSUM := 888151ba5a4cb4fdcbc170c6b0f7b3086f7365356fa25b448bd173947b58bf1e
+$(PKG)_VERSION  := 5.32.0
+$(PKG)_CHECKSUM := 099872dc19e917ca7b172881ca547b4df7f62e1968fab805a540fd99b59425a8
 $(PKG)_SUBDIR   := $(PKG)-$($(PKG)_VERSION)
 $(PKG)_FILE     := $(PKG)-$($(PKG)_VERSION).tar.xz
 $(PKG)_HOME     := http://download.kde.org/stable/frameworks

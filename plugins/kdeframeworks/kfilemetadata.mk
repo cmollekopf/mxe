@@ -1,7 +1,7 @@
 # This file is part of MXE. See LICENSE.md for licensing information.
 PKG             := kfilemetadata
-$(PKG)_VERSION  := 5.28.0
-$(PKG)_CHECKSUM  := 86fbcf1aa89d7224a99608aeb5cb3d912afe126e14a91c5d571060ec7f77b16b
+$(PKG)_VERSION  := 5.32.0
+$(PKG)_CHECKSUM  := 0e817ff8d63de773b4e320e4864936bb724cd80e04ad38c2035dd19eeb0ba905
 $(PKG)_SUBDIR   := $(PKG)-$($(PKG)_VERSION)
 $(PKG)_FILE     := $(PKG)-$($(PKG)_VERSION).tar.xz
 $(PKG)_HOME     := http://download.kde.org/stable/frameworks

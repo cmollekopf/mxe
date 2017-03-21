@@ -1,7 +1,7 @@
 # This file is part of MXE. See LICENSE.md for licensing information.
 PKG             := kwallet
-$(PKG)_VERSION  := 5.28.0
-$(PKG)_CHECKSUM  := 3513813399f214e855ead5f12147a11e39d3ccd7b79c2ede2a5b0fcfe5ae4558
+$(PKG)_VERSION  := 5.32.0
+$(PKG)_CHECKSUM  := aa97ed3255bb6ae49f663df41a6e07597cd2c7d8af1e6b455f2f4d468d254c5f
 $(PKG)_SUBDIR   := $(PKG)-$($(PKG)_VERSION)
 $(PKG)_FILE     := $(PKG)-$($(PKG)_VERSION).tar.xz
 $(PKG)_HOME     := http://download.kde.org/stable/frameworks
