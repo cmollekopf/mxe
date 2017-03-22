@@ -15,10 +15,12 @@ define $(PKG)_UPDATE
 endef
 
 define $(PKG)_BUILD
-    mkdir "$(1)/build-desktoptojson"
-    cd "$(1)/build-desktoptojson" && cmake .. -DCMAKE_PREFIX_PATH=/usr/lib/x86_64-linux-gnu/cmake/
-    $(MAKE) -C "$(1)/build-desktoptojson" -j $(JOBS) desktoptojson
-    cp "$(1)/build-desktoptojson/src/desktoptojson/desktoptojson" $(PREFIX)/bin
+	cd "$(1)/src/desktoptojson" && \
+		$(BUILD_CXX) -std=c++11 -fPIC \
+		$(shell pkg-config --cflags Qt5Core --libs Qt5Core) \
+		-DBUILDING_DESKTOPTOJSON_TOOL \
+		-o $(PREFIX)/bin/desktoptojson \
+		main.cpp desktoptojson.cpp ../lib/plugin/desktopfileparser.cpp
 
     mkdir "$(1)/build"
     cd "$(1)/build" && cmake .. \
