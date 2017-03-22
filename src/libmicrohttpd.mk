@@ -8,12 +8,12 @@ $(PKG)_VERSION  := 0.9.38
 $(PKG)_CHECKSUM := 8df2b4dd863c98799a4775a530d905363fbc02fec850af9094da890b28b9e721
 $(PKG)_SUBDIR   := $(PKG)-$($(PKG)_VERSION)
 $(PKG)_FILE     := $(PKG)-$($(PKG)_VERSION).tar.gz
-$(PKG)_URL      := https://ftp.gnu.org/gnu/libmicrohttpd/$($(PKG)_FILE)
+$(PKG)_URL      := https://ftpmirror.gnu.org/gnu/libmicrohttpd/$($(PKG)_FILE)
 $(PKG)_URL_2    := https://ftpmirror.gnu.org/libmicrohttpd/$($(PKG)_FILE)
 $(PKG)_DEPS     := gcc plibc pthreads
 
 define $(PKG)_UPDATE
-    $(WGET) -q -O- 'https://ftp.gnu.org/gnu/libmicrohttpd/?C=M;O=D' | \
+    $(WGET) -q -O- 'https://ftpmirror.gnu.org/gnu/libmicrohttpd/?C=M;O=D' | \
     $(SED) -n 's,.*<a href="libmicrohttpd-\([0-9][^"]*\)\.tar.*,\1,p' | \
     $(SORT) -V | \
     tail -1

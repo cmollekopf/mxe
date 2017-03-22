@@ -7,7 +7,7 @@ $(PKG)_VERSION  := 1.15
 $(PKG)_CHECKSUM := ccf536620a45458d26ba83887a983b96827001e92a13847b45e4925cc8913178
 $(PKG)_SUBDIR   := libiconv-$($(PKG)_VERSION)
 $(PKG)_FILE     := libiconv-$($(PKG)_VERSION).tar.gz
-$(PKG)_URL      := https://ftp.gnu.org/gnu/libiconv/$($(PKG)_FILE)
+$(PKG)_URL      := https://ftpmirror.gnu.org/gnu/libiconv/$($(PKG)_FILE)
 $(PKG)_DEPS     := gcc
 
 define $(PKG)_UPDATE

@@ -6,7 +6,7 @@ $(PKG)_VERSION  := 1.19.1
 $(PKG)_CHECKSUM := 0c950b9671881222a4d385b013c9604e98a8025d1988529dfca0e93617744cd2
 $(PKG)_SUBDIR   := $(PKG)-$($(PKG)_VERSION)
 $(PKG)_FILE     := $(PKG)-$($(PKG)_VERSION).tar.xz
-$(PKG)_URL      := https://ftp.gnu.org/gnu/$(PKG)/$($(PKG)_FILE)
+$(PKG)_URL      := https://ftpmirror.gnu.org/gnu/$(PKG)/$($(PKG)_FILE)
 $(PKG)_DEPS     := gcc gnutls libidn libntlm pthreads
 
 define $(PKG)_UPDATE

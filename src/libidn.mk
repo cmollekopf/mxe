@@ -8,7 +8,7 @@ $(PKG)_VERSION  := 1.33
 $(PKG)_CHECKSUM := 44a7aab635bb721ceef6beecc4d49dfd19478325e1b47f3196f7d2acc4930e19
 $(PKG)_SUBDIR   := libidn-$($(PKG)_VERSION)
 $(PKG)_FILE     := libidn-$($(PKG)_VERSION).tar.gz
-$(PKG)_URL      := https://ftp.gnu.org/gnu/libidn/$($(PKG)_FILE)
+$(PKG)_URL      := https://ftpmirror.gnu.org/gnu/libidn/$($(PKG)_FILE)
 $(PKG)_URL_2    := https://ftpmirror.gnu.org/libidn/$($(PKG)_FILE)
 $(PKG)_DEPS     := gcc gettext libiconv
 

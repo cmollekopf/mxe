@@ -8,7 +8,7 @@ $(PKG)_VERSION  := 1.8.0
 $(PKG)_CHECKSUM := 3adfb49f9c92a719dea855fd1840d698cde55d4648d332a69032ba8bea207720
 $(PKG)_SUBDIR   := libgsasl-$($(PKG)_VERSION)
 $(PKG)_FILE     := libgsasl-$($(PKG)_VERSION).tar.gz
-$(PKG)_URL      := https://ftp.gnu.org/gnu/gsasl/$($(PKG)_FILE)
+$(PKG)_URL      := https://ftpmirror.gnu.org/gnu/gsasl/$($(PKG)_FILE)
 $(PKG)_DEPS     := gcc libgcrypt libiconv libidn libntlm
 
 define $(PKG)_UPDATE
