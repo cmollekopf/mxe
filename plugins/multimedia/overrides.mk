@@ -2,50 +2,23 @@
 
 $(info == Custom FFmpeg overrides: $(lastword $(MAKEFILE_LIST)))
 
-# reduced ffmpeg
-ffmpeg_DEPS := $(filter-out gnutls libass libbluray libbs2b libcaca opencore-amr vo-amrwbenc xvidcore lame x264 speex,$(ffmpeg_DEPS))
+ffmpeg_DEPS := $(filter-out gnutls libass libbluray libbs2b libcaca opencore-amr vo-amrwbenc \
+	lame x264 xvidcore speex theora,$(ffmpeg_DEPS))
 
-# use pthreads with MLT
-define ffmpeg_BUILD
-    cd '$(1)' && ./configure \
-        --cross-prefix='$(TARGET)'- \
-        --enable-cross-compile \
-        --arch=$(firstword $(subst -, ,$(TARGET))) \
-        --target-os=mingw32 \
-        --prefix='$(PREFIX)/$(TARGET)' \
-        $(if $(BUILD_STATIC), \
-            --enable-static --disable-shared , \
-            --disable-static --enable-shared ) \
-        --yasmexe='$(TARGET)-yasm' \
-        --disable-debug \
-        --disable-ffserver \
-        --enable-memalign-hack \
-        --enable-pthreads \
-        --disable-w32threads \
-        --disable-doc \
-        --enable-avresample \
-        --enable-gpl \
-        --enable-version3 \
-        --extra-libs='-mconsole' \
-        --enable-avisynth \
-        --enable-gnutls \
-        --disable-libass \
-        --disable-libbluray \
-        --disable-libbs2b \
-        --disable-libcaca \
-        --disable-libmp3lame \
-        --disable-libopencore-amrnb \
-        --disable-libopencore-amrwb \
-        --enable-libopus \
-        --disable-libspeex \
-        --enable-libtheora \
-        --enable-libvidstab \
-        --disable-libvo-amrwbenc \
-        --enable-libvorbis \
-        --enable-libvpx \
-        --disable-libx264 \
-        --disable-libxvid
-    $(MAKE) -C '$(1)' -j '$(JOBS)'
-    $(MAKE) -C '$(1)' -j 1 install
-endef
+ffmpeg_BUILD_SHARED = $(subst --disable-pthreads, --enable-pthreads, \
+					  $(subst --enable-w32threads, --disable-w32threads, \
+					  $(subst --enable-avisynth, --disable-avisynth, \
+					  $(subst --enable-gnutls, --disable-gnutls, \
+					  $(subst --enable-libass, --disable-libass, \
+					  $(subst --enable-libbluray, --disable-libbluray, \
+					  $(subst --enable-libbs2b, --disable-libbs2b, \
+					  $(subst --enable-libcaca, --disable-libcaca, \
+					  $(subst --enable-libmp3lame, --disable-libmp3lame, \
+					  $(subst --enable-libopencore, --disable-libopencore, \
+					  $(subst --enable-libspeex, --disable-libspeex, \
+					  $(subst --enable-libtheora, --disable-libtheora, \
+					  $(subst --enable-libvo-amrwbenc, --disable-libvo-amrwbenc, \
+					  $(subst --enable-libx264, --disable-libx264, \
+					  $(subst --enable-libxvid, --disable-libxvid, \
+					  $(ffmpeg_BUILD) )))))))))))))))
 
