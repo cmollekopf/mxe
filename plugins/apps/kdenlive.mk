@@ -33,9 +33,10 @@ define $(PKG)_BUILD
         -DTARGETSFILE=/usr/lib/x86_64-linux-gnu/cmake/KF5CoreAddons/KF5CoreAddonsToolingTargets.cmake \
         -DCMAKE_DISABLE_FIND_PACKAGE_LibV4L2=TRUE \
         -DMLT_MELTBIN=./melt.exe \
-        -DCMAKE_BUILD_TYPE=Debug \
+        -DCMAKE_BUILD_TYPE=Release \
         -DKDE_INSTALL_USE_QT_SYS_PATHS=ON
 	$(SED) -i 's,MLT_PREFIX ".*",MLT_PREFIX ".",' "$(1)/build-mxe/config-kdenlive.h"
 	$(SED) -i 's,MLT_MELTBIN=[^ ]*,MLT_MELTBIN=\\"melt.exe\\",' "$(1)/build-mxe/src/CMakeFiles/kdenlive.dir/flags.make"
     $(MAKE) -C "$(1)/build-mxe" -j $(JOBS) install
 endef
+# -DCMAKE_CXX_FLAGS=-std=c++11 -DCMAKE_CXX_STANDARD=11 -DCMAKE_VERBOSE_MAKEFILE=ON
