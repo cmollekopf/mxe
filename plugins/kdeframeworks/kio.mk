@@ -23,6 +23,7 @@ define $(PKG)_BUILD
         -DCMAKE_TOOLCHAIN_FILE="$(CMAKE_TOOLCHAIN_FILE)" \
         -DCMAKE_BUILD_TYPE=Release \
         -DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
+        -DDESKTOPTOJSON_EXECUTABLE=$(PREFIX)/bin/desktoptojson \
         -DBUILD_TESTING=OFF
     $(MAKE) -C "$(1)/build" -j $(JOBS) install
 endef
