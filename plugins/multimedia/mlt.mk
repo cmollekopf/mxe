@@ -19,6 +19,7 @@ define $(PKG)_UPDATE
 endef
 
 define $(PKG)_BUILD
+	$(MAKE) -C '$(1)' distclean
     cd '$(1)' && \
 	CFLAGS="-I$(PREFIX)/$(TARGET)/include" \
 	PKG_CONFIG_LIBDIR=$(PREFIX)/$(TARGET)/lib/pkgconfig \
@@ -30,7 +31,7 @@ define $(PKG)_BUILD
 		--enable-gpl --enable-gpl3 \
 		--disable-gtk2 --disable-opengl --disable-xine --disable-rtaudio \
 		--disable-decklink
-	# --disable-sse --disable-sse2
+	$(MAKE) -C '$(1)' uninstall
 	$(MAKE) -C '$(1)/src/modules/lumas' CC=$(BUILD_CC) luma
 	CXXFLAGS=-std=c++11 \
 	CFLAGS="-I$(PREFIX)/$(TARGET)/include" \
@@ -39,6 +40,7 @@ define $(PKG)_BUILD
 	$(MAKE) -C '$(1)' \
 		CC=$(TARGET)-gcc \
 		CXX=$(TARGET)-g++ \
+		LD=$(TARGET)-ld \
 		-j '$(JOBS)' all
     $(MAKE) -C '$(1)' -j 1 install
 endef
