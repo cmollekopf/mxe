@@ -47,4 +47,4 @@ define $(PKG)_BUILD
     $(MAKE) -C '$(1)/cmake-build-test' -j '$(JOBS)'
 endef
 
-$(PKG)_BUILD_SHARED =
+$(PKG)_BUILD_SHARED = $(subst -shared,-static,$($(PKG)_BUILD))
