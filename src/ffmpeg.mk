@@ -63,7 +63,7 @@ define $(PKG)_BUILD
         --enable-libvorbis \
         --enable-libvpx \
         --enable-libx264 \
-        --enable-libxvid
+        --enable-libxvid 
     $(MAKE) -C '$(1)' -j '$(JOBS)'
     $(MAKE) -C '$(1)' -j 1 install
 endef

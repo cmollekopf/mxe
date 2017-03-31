@@ -2,23 +2,38 @@
 
 $(info == Custom FFmpeg overrides: $(lastword $(MAKEFILE_LIST)))
 
-ffmpeg_DEPS := $(filter-out gnutls libass libbluray libbs2b libcaca opencore-amr vo-amrwbenc \
-	lame x264 xvidcore speex theora,$(ffmpeg_DEPS))
+sox_DEPS := $(filter-out lame, $(sox_DEPS))
+sox_BUILD_SHARED = $(filter-out --with-lame, $(sox_BUILD))
+twolame_BUILD_SHARED = $(twolame_BUILD)
+gtk2_BUILD_SHARED = $(gtk2_BUILD)
 
-ffmpeg_BUILD_SHARED = $(subst --disable-pthreads, --enable-pthreads, \
-					  $(subst --enable-w32threads, --disable-w32threads, \
-					  $(subst --enable-avisynth, --disable-avisynth, \
-					  $(subst --enable-gnutls, --disable-gnutls, \
-					  $(subst --enable-libass, --disable-libass, \
-					  $(subst --enable-libbluray, --disable-libbluray, \
-					  $(subst --enable-libbs2b, --disable-libbs2b, \
-					  $(subst --enable-libcaca, --disable-libcaca, \
-					  $(subst --enable-libmp3lame, --disable-libmp3lame, \
-					  $(subst --enable-libopencore, --disable-libopencore, \
-					  $(subst --enable-libspeex, --disable-libspeex, \
-					  $(subst --enable-libtheora, --disable-libtheora, \
-					  $(subst --enable-libvo-amrwbenc, --disable-libvo-amrwbenc, \
-					  $(subst --enable-libx264, --disable-libx264, \
-					  $(subst --enable-libxvid, --disable-libxvid, \
-					  $(ffmpeg_BUILD) )))))))))))))))
 
+ffmpeg_DEPS := twolame $(filter-out \
+	gnutls \
+	libass \
+	libbluray \
+	libbs2b \
+	libcaca \
+	lame \
+	opencore-amr \
+	speex \
+	vo-amrwbenc \
+	x264 \
+	xvidcore \
+	, $(ffmpeg_DEPS))
+
+ffmpeg_BUILD_SHARED = $(filter-out \
+					  --enable-gnutls \
+					  --enable-libass \
+					  --enable-libbluray \
+					  --enable-libbs2b \
+					  --enable-libcaca \
+					  --enable-libmp3lame \
+					  --enable-libopencore \
+					  --enable-libspeex \
+					  --enable-libvo-amrwbenc \
+					  --enable-libx264 \
+					  --enable-libxvid \
+					  , $(ffmpeg_BUILD))
+#$(subst --disable-pthreads, --enable-pthreads, \
+#$(subst --enable-w32threads, --disable-w32threads, \

@@ -8,8 +8,9 @@ $(PKG)_SUBDIR   := $(PKG)-$($(PKG)_VERSION)
 $(PKG)_FILE     := $(PKG)-$($(PKG)_VERSION).tar.gz
 $(PKG)_URL      := http://$(SOURCEFORGE_MIRROR)/project/$(PKG)/$(PKG)/$($(PKG)_FILE)
 $(PKG)_DEPS     := gcc libxml2 sdl sdl_image ffmpeg qtbase qtsvg dlfcn-win32 \
-	frei0r-plugins ladspa-sdk fftw libsamplerate vorbis sox \
-# gtk2 movit exif xine
+	frei0r-plugins ladspa-sdk fftw libsamplerate vorbis \
+	gtk2 sdl_image
+# sox movit exif
 
 define $(PKG)_UPDATE
     $(WGET) -q -O- 'https://github.com/mltframework/mlt/tags' | \
@@ -28,9 +29,7 @@ define $(PKG)_BUILD
 		--target-os=MinGW --rename-melt=melt.exe \
 		--qt-includedir=$(PREFIX)/$(TARGET)/qt5/include \
 		--qt-libdir=$(PREFIX)/$(TARGET)/qt5/lib \
-		--enable-gpl --enable-gpl3 \
-		--disable-gtk2 --disable-opengl --disable-xine --disable-rtaudio \
-		--disable-decklink
+		--enable-gpl --enable-gpl3
 	$(MAKE) -C '$(1)' uninstall
 	$(MAKE) -C '$(1)/src/modules/lumas' CC=$(BUILD_CC) luma
 	CXXFLAGS=-std=c++11 \
