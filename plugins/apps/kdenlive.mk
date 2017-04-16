@@ -1,15 +1,15 @@
 # This file is part of MXE. See LICENSE.md for licensing information.
 
 PKG             := kdenlive
-$(PKG)_VERSION  := 16.12.0
-$(PKG)_CHECKSUM := acee7f484c7b7cbff7c1fc1c73e293a54df52eee5651d45d2bf65e1d949756e3
+$(PKG)_VERSION  := 17.04.0
+$(PKG)_CHECKSUM :=
 $(PKG)_SUBDIR   := $(PKG)-$($(PKG)_VERSION)
 $(PKG)_FILE     := $(PKG)-$($(PKG)_VERSION).tar.xz
 $(PKG)_HOME     := http://download.kde.org/stable/applications
 $(PKG)_URL      := $($(PKG)_HOME)/$($(PKG)_VERSION)/src/$($(PKG)_FILE)
 $(PKG)_DEPS     := \
 	ffmpeg mlt \
-	qtbase qtdeclarative qtscript qtquickcontrols \
+	qtbase qtdeclarative qtquickcontrols \
 	breeze-icons karchive kconfig kcoreaddons kdbusaddons kguiaddons ki18n kitemviews kplotting kwidgetsaddons \
 	kcompletion kcrash kfilemetadata kjobwidgets \
 	kbookmarks kconfigwidgets kiconthemes kio knewstuff knotifications knotifyconfig kservice ktextwidgets kxmlgui kinit
