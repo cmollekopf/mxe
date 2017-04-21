@@ -1,7 +1,7 @@
 # This file is part of MXE. See LICENSE.md for licensing information.
 PKG             := kiconthemes
-$(PKG)_VERSION  := 5.32.0
-$(PKG)_CHECKSUM  := 055334138c964d61f8e11bbeb90286b3cd230c6856a801366e4f0e5fa65f5f01
+$(PKG)_VERSION  := 5.33.0
+$(PKG)_CHECKSUM  := 021923e137531993aabde5b1b7002ae97593ad8b8ddc143da5524a795a29daff
 $(PKG)_SUBDIR   := $(PKG)-$($(PKG)_VERSION)
 $(PKG)_FILE     := $(PKG)-$($(PKG)_VERSION).tar.xz
 $(PKG)_HOME     := http://download.kde.org/stable/frameworks

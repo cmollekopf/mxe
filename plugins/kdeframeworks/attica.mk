@@ -1,7 +1,7 @@
 # This file is part of MXE. See LICENSE.md for licensing information.
 PKG             := attica
-$(PKG)_VERSION  := 5.32.0
-$(PKG)_CHECKSUM := e5428cda35021d00baecb16cadf12a08c84ef15e61e72790ae6e33ccef1b749b
+$(PKG)_VERSION  := 5.33.0
+$(PKG)_CHECKSUM := a6953f8c7c1f4b126a4a07228094eaef47f94102dccc1ad2348b78061ef425b7
 $(PKG)_SUBDIR   := $(PKG)-$($(PKG)_VERSION)
 $(PKG)_FILE     := $(PKG)-$($(PKG)_VERSION).tar.xz
 $(PKG)_HOME     := http://download.kde.org/stable/frameworks
