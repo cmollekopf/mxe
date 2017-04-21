@@ -2,8 +2,20 @@
 
 $(info == Custom FFmpeg overrides: $(lastword $(MAKEFILE_LIST)))
 
-sox_DEPS := $(filter-out lame, $(sox_DEPS))
-sox_BUILD_SHARED = $(filter-out --with-lame, $(sox_BUILD))
+sox_DEPS := gcc libltdl
+define sox_BUILD_SHARED
+    cd '$(1)' && ./configure \
+		$(MXE_CONFIGURE_OPTS) \
+        --disable-symlinks \
+		--disable-gomp \
+		--without-ffmpeg \
+        --without-magic \
+        --without-png \
+        --without-ladspa
+    $(MAKE) -C '$(1)' -j '$(JOBS)'
+    $(MAKE) -C '$(1)' -j 1 install
+endef
+
 twolame_BUILD_SHARED = $(twolame_BUILD)
 gtk2_BUILD_SHARED = $(gtk2_BUILD)
 
@@ -29,7 +41,8 @@ ffmpeg_BUILD_SHARED = $(filter-out \
 					  --enable-libbs2b \
 					  --enable-libcaca \
 					  --enable-libmp3lame \
-					  --enable-libopencore \
+					  --enable-libopencore-amrnb \
+					  --enable-libopencore-amrwb \
 					  --enable-libspeex \
 					  --enable-libvo-amrwbenc \
 					  --enable-libx264 \
