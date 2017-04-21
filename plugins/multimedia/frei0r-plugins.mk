@@ -1,8 +1,8 @@
 # This file is part of MXE. See LICENSE.md for licensing information.
 
 PKG             := frei0r-plugins
-$(PKG)_VERSION  := 1.5.0
-$(PKG)_CHECKSUM := 781cf84a6c2a9a3252f54d2967b57f6de75a31fc1684371e112638c981f72b60
+$(PKG)_VERSION  := 1.6.1
+$(PKG)_CHECKSUM := 
 $(PKG)_SUBDIR   := $(PKG)-$($(PKG)_VERSION)
 $(PKG)_FILE     := $(PKG)-$($(PKG)_VERSION).tar.gz
 $(PKG)_HOME     := https://files.dyne.org/frei0r/releases/
@@ -16,9 +16,9 @@ define $(PKG)_UPDATE
 endef
 
 define $(PKG)_BUILD
-    mkdir '$(1)/build'
-    cd '$(1)/build' && cmake .. \
+    mkdir -p '$(1)/build-mxe'
+    cd '$(1)/build-mxe' && cmake .. \
         -DCMAKE_TOOLCHAIN_FILE='$(CMAKE_TOOLCHAIN_FILE)' \
         -DWITHOUT_GAVL=1 -DWITHOUT_OPENCV=1
-    $(MAKE) -C '$(1)/build' -j '$(JOBS)' install
+    $(MAKE) -C '$(1)/build-mxe' -j '$(JOBS)' install
 endef
