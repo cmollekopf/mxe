@@ -29,7 +29,7 @@ define $(PKG)_BUILD
 		--target-os=MinGW --rename-melt=melt.exe \
 		--qt-includedir=$(PREFIX)/$(TARGET)/qt5/include \
 		--qt-libdir=$(PREFIX)/$(TARGET)/qt5/lib \
-		--enable-gpl --enable-gpl3
+		--enable-gpl --enable-gpl3 --disable-rtaudio --disable-sox
 	$(MAKE) -C '$(1)' uninstall
 	$(MAKE) -C '$(1)/src/modules/lumas' CC=$(BUILD_CC) luma
 	CXXFLAGS=-std=c++11 \

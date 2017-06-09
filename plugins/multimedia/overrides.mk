@@ -20,14 +20,14 @@ twolame_BUILD_SHARED = $(twolame_BUILD)
 gtk2_BUILD_SHARED = $(gtk2_BUILD)
 
 
-ffmpeg_DEPS := twolame $(filter-out \
+ffmpeg_DEPS := twolame sdl2 $(filter-out \
 	gnutls \
 	libass \
 	libbluray \
 	libbs2b \
 	libcaca \
-	lame \
 	opencore-amr \
+	sdl \
 	speex \
 	vo-amrwbenc \
 	x264 \
@@ -40,7 +40,6 @@ ffmpeg_BUILD_SHARED = $(filter-out \
 					  --enable-libbluray \
 					  --enable-libbs2b \
 					  --enable-libcaca \
-					  --enable-libmp3lame \
 					  --enable-libopencore-amrnb \
 					  --enable-libopencore-amrwb \
 					  --enable-libspeex \
