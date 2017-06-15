@@ -1,7 +1,7 @@
 # This file is part of MXE. See LICENSE.md for licensing information.
 PKG             := kcrash
-$(PKG)_VERSION  := 5.33.0
-$(PKG)_CHECKSUM  := d34a51bdf021b7901c6270e26fbc101bd432e8d15b820f3a9aa464e2d4a6dc8c
+$(PKG)_VERSION  := 5.35.0
+$(PKG)_CHECKSUM  := 3086f410712132e15d593330c43b64502a059ebb833eea75245b8fab2432140c
 $(PKG)_SUBDIR   := $(PKG)-$($(PKG)_VERSION)
 $(PKG)_FILE     := $(PKG)-$($(PKG)_VERSION).tar.xz
 $(PKG)_HOME     := http://download.kde.org/stable/frameworks

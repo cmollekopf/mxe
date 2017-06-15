@@ -1,7 +1,7 @@
 # This file is part of MXE. See LICENSE.md for licensing information.
 PKG             := knotifications
-$(PKG)_VERSION  := 5.33.0
-$(PKG)_CHECKSUM  := cdab094f3a4f0c7bedf198f20605c8cbf4a73ac3909b92091d0dd7412177f79e
+$(PKG)_VERSION  := 5.35.0
+$(PKG)_CHECKSUM  := 2fa2801fa5f43602d6a6d389fb80688c49f4d79060d071a2c8929de088d2f622
 $(PKG)_SUBDIR   := $(PKG)-$($(PKG)_VERSION)
 $(PKG)_FILE     := $(PKG)-$($(PKG)_VERSION).tar.xz
 $(PKG)_HOME     := http://download.kde.org/stable/frameworks

@@ -1,7 +1,7 @@
 # This file is part of MXE. See LICENSE.md for licensing information.
 PKG             := kjobwidgets
-$(PKG)_VERSION  := 5.33.0
-$(PKG)_CHECKSUM  := 9f01d28cb6a81680221b56e6cefbcf10aa70c5ebb61f167e2a7785d8d5794d05
+$(PKG)_VERSION  := 5.35.0
+$(PKG)_CHECKSUM  := 7437aca391723314b44f951ee1dde74b309c5d04c8f25b4f86c8a9e45f720c64
 $(PKG)_SUBDIR   := $(PKG)-$($(PKG)_VERSION)
 $(PKG)_FILE     := $(PKG)-$($(PKG)_VERSION).tar.xz
 $(PKG)_HOME     := http://download.kde.org/stable/frameworks

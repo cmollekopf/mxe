@@ -1,7 +1,7 @@
 # This file is part of MXE. See LICENSE.md for licensing information.
 PKG             := kglobalaccel
-$(PKG)_VERSION  := 5.33.0
-$(PKG)_CHECKSUM  := 07c0d8aab35446020ddc728ac17881331cfb4e830a0396e7c731a01ff9368441
+$(PKG)_VERSION  := 5.35.0
+$(PKG)_CHECKSUM  := c541d17d149ff8ecb19e56cf423e6c84c857a706b499988efa6c3ceeda6225dc
 $(PKG)_SUBDIR   := $(PKG)-$($(PKG)_VERSION)
 $(PKG)_FILE     := $(PKG)-$($(PKG)_VERSION).tar.xz
 $(PKG)_HOME     := http://download.kde.org/stable/frameworks

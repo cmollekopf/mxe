@@ -1,12 +1,13 @@
 # This file is part of MXE. See LICENSE.md for licensing information.
 PKG             := ki18n
-$(PKG)_VERSION  := 5.33.0
-$(PKG)_CHECKSUM := 611a12938ede750ee649c030fb8e248198b491747728e3a2b01671bb074eae0b
+$(PKG)_VERSION  := 5.35.0
+$(PKG)_CHECKSUM := 8e7d88d8a27fc466257caa0f0871fbd4fb56c674c9fbb6567e87da933b221ea5
 $(PKG)_SUBDIR   := $(PKG)-$($(PKG)_VERSION)
 $(PKG)_FILE     := $(PKG)-$($(PKG)_VERSION).tar.xz
 $(PKG)_HOME     := http://download.kde.org/stable/frameworks
 $(PKG)_URL      := $($(PKG)_HOME)/$(basename $($(PKG)_VERSION))/$($(PKG)_FILE)
-$(PKG)_DEPS     := qtbase extra-cmake-modules qttools qtscript gettext
+$(PKG)_DEPS     := qtbase extra-cmake-modules qttools gettext \
+ qtscript 
 
 define $(PKG)_UPDATE
     $(WGET) -q -O- http://download.kde.org/stable/frameworks/ | \
