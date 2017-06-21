@@ -1,7 +1,7 @@
 # This file is part of MXE. See LICENSE.md for licensing information.
 
 PKG             := kdenlive
-$(PKG)_VERSION  := 17.04.0
+$(PKG)_VERSION  := 17.04.2
 $(PKG)_CHECKSUM :=
 $(PKG)_SUBDIR   := $(PKG)-$($(PKG)_VERSION)
 $(PKG)_FILE     := $(PKG)-$($(PKG)_VERSION).tar.xz
@@ -11,7 +11,7 @@ $(PKG)_DEPS     := \
 	ffmpeg mlt \
 	qtbase qtdeclarative qtquickcontrols \
 	breeze-icons karchive kconfig kcoreaddons kdbusaddons kguiaddons ki18n kitemviews kplotting kwidgetsaddons \
-	kcompletion kcrash kfilemetadata kjobwidgets \
+	kcompletion kcrash kfilemetadata kjobwidgets kdeclarative \
 	kbookmarks kconfigwidgets kiconthemes kio knewstuff knotifications knotifyconfig kservice ktextwidgets kxmlgui kinit
 #	breeze
 
