@@ -45,7 +45,7 @@ then
     echo "Compressing"
     cd $INSTALL_DIR/..
     7z a $INSTALL_DIR-w64.7z $INSTALL_DIR
-    cd $MXE_BINDIR
-    7z a $INSTALL_DIR/../$INSTALL_DIR-w64dbg.7z kdenlive.debug
+    cd $MXE_BINDIR/bin
+    7z a $MXE_DIR/../Kdenlive-$VERSION-w64dbg.7z kdenlive.debug
 fi
 

@@ -20,6 +20,9 @@ define $(PKG)_BUILD
     mkdir "$(1)/build"
     cd "$(1)/build" && cmake .. \
         -DCMAKE_TOOLCHAIN_FILE="$(CMAKE_TOOLCHAIN_FILE)" \
+        -DCMAKE_CROSSCOMPILING=ON \
+        -DKF5_HOST_TOOLING=/usr/lib/x86_64-linux-gnu/cmake \
+        -DKCONFIGCOMPILER_PATH=/usr/lib/x86_64-linux-gnu/cmake/KF5Config/KF5ConfigCompilerTargets.cmake \
         -DCMAKE_BUILD_TYPE=Release \
         -DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
         -DBUILD_TESTING=OFF
