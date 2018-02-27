@@ -6,7 +6,7 @@ $(PKG)_SUBDIR   := $(PKG)-$($(PKG)_VERSION)
 $(PKG)_FILE     := $(PKG)-$($(PKG)_VERSION).tar.xz
 $(PKG)_HOME     := http://download.kde.org/unstable/$(PKG)
 $(PKG)_URL      := $($(PKG)_HOME)/$($(PKG)_VERSION)/src/$($(PKG)_FILE)
-$(PKG)_DEPS     := qtbase extra-cmake-modules kcoreaddons kmime sasl2
+$(PKG)_DEPS     := qtbase extra-cmake-modules kcoreaddons kmime cyrus-sasl
 
 define $(PKG)_BUILD
     mkdir "$(1)/build"
