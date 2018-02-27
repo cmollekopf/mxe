@@ -32,5 +32,8 @@ override MXE_PLUGIN_DIRS += \
 # .DEFAULT local-pkg-list:
 # local-pkg-list: $(LOCAL_PKG_LIST)
 
+LOCAL_PKG_LIST := kmime kimap2
+local-pkg-list: $(LOCAL_PKG_LIST)
+
 # openssl recognition fails on Debian sid
 # REQUIREMENTS := $(filter-out openssl ,$(REQUIREMENTS))
