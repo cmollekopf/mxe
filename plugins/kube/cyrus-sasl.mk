@@ -15,8 +15,12 @@ $(PKG)_DEPS     := gcc
     #     -DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
     #     -DBUILD_TESTING=OFF
 
+$(PKG)_MAKE_OPTS = \
+        HOSTCC='$(BUILD_CC)' \
+		EXEEXT=''
+
 define $(PKG)_BUILD
 	cd "$(1)" && ./configure $(MXE_CONFIGURE_OPTS)
-    $(MAKE) -C "$(1)" -j $(JOBS)
-    $(MAKE) -C "$(1)" -j $(JOBS) install
+    $(MAKE) -C "$(1)" -j $(JOBS) $($(PKG)_MAKE_OPTS)
+    $(MAKE) -C "$(1)" -j $(JOBS) $($(PKG)_MAKE_OPTS) install
 endef
