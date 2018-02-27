@@ -1,0 +1,23 @@
+--- foo/include/Makefile.in 2017-09-28 16:41:38.849284576 +0200
++++ foo/include/Makefile.in 2017-09-28 16:47:58.458939704 +0200
+@@ -113,14 +113,14 @@
+ depcomp = $(SHELL) $(top_srcdir)/config/depcomp
+ am__depfiles_maybe = depfiles
+ am__mv = mv -f
+-COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
+-       $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
++COMPILE = $(HOSTCC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
++       $(CPPFLAGS) $(AM_CFLAGS) $(HOSTCFLAGS)
+ LTCOMPILE = $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) \
+-       --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
+-       $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+-CCLD = $(CC)
++       --mode=compile $(HOSTCC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) \
++       $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(HOSTCFLAGS)
++CCLD = $(HOSTCC)
+ LINK = $(LIBTOOL) $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link \
+-       $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
++       $(CCLD) $(AM_CFLAGS) $(HOSTCFLAGS) $(AM_LDFLAGS) $(LDFLAGS) -o $@
+ SOURCES = $(makemd5_SOURCES)
+ DIST_SOURCES = $(makemd5_SOURCES)
+ am__vpath_adj_setup = srcdirstrip=`echo "$(srcdir)" | sed 's|.|.|g'`;

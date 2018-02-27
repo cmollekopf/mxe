@@ -1,0 +1,27 @@
+Fix HOSTCC and related variables.
+
+Patch inspired by:
+http://tech.dir.groups.yahoo.com/group/nslu2-linux/message/4044?var=0
+
+diff -r -u cyrus-sasl-2.1.24rc1-orig//include/Makefile.in cyrus-sasl-2.1.24rc1/include/Makefile.in
+--- cyrus-sasl-2.1.24rc1-orig/include/Makefile.in	2009-05-07 16:24:46.000000000 +0200
++++ cyrus-sasl-2.1.24rc1/include/Makefile.in	2011-05-05 12:29:38.036844027 +0200
+@@ -266,12 +266,12 @@
+ depcomp = $(SHELL) $(top_srcdir)/config/depcomp
+ am__depfiles_maybe = depfiles
+ @AMDEP_TRUE@DEP_FILES = ./$(DEPDIR)/makemd5.Po
+-COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
+-	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+-LTCOMPILE = $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) \
+-	$(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+-CCLD = $(CC)
+-LINK = $(LIBTOOL) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
++COMPILE = $(HOSTCC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
++	$(CPPFLAGS) $(AM_CFLAGS) $(HOSTCFLAGS)
++LTCOMPILE = $(LIBTOOL) --mode=compile $(HOSTCC) $(DEFS) $(DEFAULT_INCLUDES) \
++	$(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(HOSTCFLAGS)
++CCLD = $(HOSTCC)
++LINK = $(LIBTOOL) --mode=link $(CCLD) $(AM_CFLAGS) $(HOSTCFLAGS) \
+ 	$(AM_LDFLAGS) $(LDFLAGS) -o $@
+ DIST_SOURCES = $(makemd5_SOURCES)
+ DATA = $(frameheader_DATA)

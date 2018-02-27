@@ -1,7 +1,7 @@
 # This file is part of MXE. See LICENSE.md for licensing information.
 PKG             := kcoreaddons
-$(PKG)_VERSION  := 5.35.0
-$(PKG)_CHECKSUM := dc4c499bd0ac0a42f44651ce4526dbd1485ab0ef5452d891da8e93da3c08210b
+$(PKG)_VERSION  := 5.36.0
+$(PKG)_CHECKSUM := 9d4b26bf22d1326c37f33aa4727942325cad2b23e5b3f1e32ec9ee558e9b5594
 $(PKG)_SUBDIR   := $(PKG)-$($(PKG)_VERSION)
 $(PKG)_FILE     := $(PKG)-$($(PKG)_VERSION).tar.xz
 $(PKG)_HOME     := http://download.kde.org/stable/frameworks

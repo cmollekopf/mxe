@@ -1,3 +1,7 @@
+# Building Kube
+
+Run "make"
+
 # MXE (M cross environment)
 
 [![License][license-badge]][license-page]
